@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controller.DashboardController">
+    <top>
+        <VBox BorderPane.alignment="CENTER">
+            <children>
+                <MenuBar>
+                    <menus>
+                        <Menu mnemonicParsing="false" text="File">
+                            <items>
+                                <MenuItem fx:id="logoutMenuItem" mnemonicParsing="false" onAction="#handleLogout" text="Logout" />
+                                <MenuItem fx:id="exitMenuItem" mnemonicParsing="false" onAction="#handleExit" text="Exit" />
+                            </items>
+                        </Menu>
+                        <Menu mnemonicParsing="false" text="Management">
+                            <items>
+                                <MenuItem fx:id="addPatientMenuItem" mnemonicParsing="false" onAction="#handleAddPatient" text="Add Patient" />
+                                <MenuItem fx:id="addStaffMenuItem" mnemonicParsing="false" onAction="#handleAddStaff" text="Add Staff" />
+                                <MenuItem fx:id="manageShiftsMenuItem" mnemonicParsing="false" onAction="#handleManageShifts" text="Manage Shifts" />
+                            </items>
+                        </Menu>
+                        <Menu mnemonicParsing="false" text="Help">
+                            <items>
+                                <MenuItem fx:id="aboutMenuItem" mnemonicParsing="false" onAction="#handleAbout" text="About" />
+                            </items>
+                        </Menu>
+                    </menus>
+                </MenuBar>
+                <HBox alignment="CENTER_LEFT" spacing="10.0" style="-fx-background-color: #f0f0f0;">
+                    <children>
+                        <Label text="RMIT Care Home">
+                            <font>
+                                <Font name="System Bold" size="18.0" />
+                            </font>
+                        </Label>
+                        <Label text="|">
+                            <font>
+                                <Font size="18.0" />
+                            </font>
+                        </Label>
+                        <Label text="Logged in as:">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="currentUserLabel" text="User">
+                            <font>
+                                <Font name="System Bold" size="14.0" />
+                            </font>
+                        </Label>
+                        <Label text="(">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="userRoleLabel" text="Role">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </Label>
+                        <Label text=")">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </Label>
+                    </children>
+                    <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                    </padding>
+                </HBox>
+            </children>
+        </VBox>
+    </top>
+    <center>
+        <TabPane fx:id="mainTabPane" prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+            <tabs>
+                <Tab text="Ward View">
+                    <content>
+                        <BorderPane prefHeight="200.0" prefWidth="200.0">
+                            <center>
+                                <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+                                    <tabs>
+                                        <Tab text="Ward 1">
+                                            <content>
+                                                <BorderPane fx:id="ward1Container" prefHeight="200.0" prefWidth="200.0" />
+                                            </content>
+                                        </Tab>
+                                        <Tab text="Ward 2">
+                                            <content>
+                                                <BorderPane fx:id="ward2Container" prefHeight="200.0" prefWidth="200.0" />
+                                            </content>
+                                        </Tab>
+                                    </tabs>
+                                </TabPane>
+                            </center>
+                        </BorderPane>
+                    </content>
+                </Tab>
+                <Tab text="Patient Management">
+                    <content>
+                        <BorderPane prefHeight="200.0" prefWidth="200.0">
+                            <center>
+                                <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="20.0" BorderPane.alignment="CENTER">
+                                    <children>
+                                        <Label text="Patient Management">
+                                            <font>
+                                                <Font name="System Bold" size="18.0" />
+                                            </font>
+                                        </Label>
+                                        <HBox alignment="CENTER" spacing="20.0">
+                                            <children>
+                                                <Button fx:id="addPatientButton" mnemonicParsing="false" onAction="#handleAddPatient" text="Add Patient" />
+                                                <Button fx:id="viewPatientButton" mnemonicParsing="false" onAction="#handleViewPatient" text="View Patient" />
+                                                <Button fx:id="movePatientButton" mnemonicParsing="false" onAction="#handleMovePatient" text="Move Patient" />
+                                                <Button fx:id="dischargePatientButton" mnemonicParsing="false" onAction="#handleDischargePatient" text="Discharge Patient" />
+                                            </children>
+                                        </HBox>
+                                        <BorderPane fx:id="patientManagementContainer" prefHeight="500.0" prefWidth="200.0" />
+                                    </children>
+                                    <padding>
+                                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                    </padding>
+                                </VBox>
+                            </center>
+                        </BorderPane>
+                    </content>
+                </Tab>
+                <Tab text="Staff Management">
+                    <content>
+                        <BorderPane prefHeight="200.0" prefWidth="200.0">
+                            <center>
+                                <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="20.0" BorderPane.alignment="CENTER">
+                                    <children>
+                                        <Label text="Staff Management">
+                                            <font>
+                                                <Font name="System Bold" size="18.0" />
+                                            </font>
+                                        </Label>
+                                        <HBox alignment="CENTER" spacing="20.0">
+                                            <children>
+                                                <Button fx:id="addStaffButton" mnemonicParsing="false" onAction="#handleAddStaff" text="Add Staff" />
+                                                <Button fx:id="editStaffButton" mnemonicParsing="false" onAction="#handleEditStaff" text="Edit Staff" />
+                                                <Button fx:id="manageShiftsButton" mnemonicParsing="false" onAction="#handleManageShifts" text="Manage Shifts" />
+                                            </children>
+                                        </HBox>
+                                        <BorderPane fx:id="staffManagementContainer" prefHeight="500.0" prefWidth="200.0" />
+                                    </children>
+                                    <padding>
+                                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                    </padding>
+                                </VBox>
+                            </center>
+                        </BorderPane>
+                    </content>
+                </Tab>
+                <Tab text="Prescriptions">
+                    <content>
+                        <BorderPane prefHeight="200.0" prefWidth="200.0">
+                            <center>
+                                <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="20.0" BorderPane.alignment="CENTER">
+                                    <children>
+                                        <Label text="Prescription Management">
+                                            <font>
+                                                <Font name="System Bold" size="18.0" />
+                                            </font>
+                                        </Label>
+                                        <HBox alignment="CENTER" spacing="20.0">
+                                            <children>
+                                                <Button fx:id="addPrescriptionButton" mnemonicParsing="false" onAction="#handleAddPrescription" text="Add Prescription" />
+                                                <Button fx:id="viewPrescriptionsButton" mnemonicParsing="false" onAction="#handleViewPrescriptions" text="View Prescriptions" />
+                                            </children>
+                                        </HBox>
+                                        <BorderPane fx:id="prescriptionContainer" prefHeight="500.0" prefWidth="200.0" />
+                                    </children>
+                                    <padding>
+                                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                    </padding>
+                                </VBox>
+                            </center>
+                        </BorderPane>
+                    </content>
+                </Tab>
+                <Tab text="Medication Administration">
+                    <content>
+                        <BorderPane prefHeight="200.0" prefWidth="200.0">
+                            <center>
+                                <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="20.0" BorderPane.alignment="CENTER">
+                                    <children>
+                                        <Label text="Medication Administration">
+                                            <font>
+                                                <Font name="System Bold" size="18.0" />
+                                            </font>
+                                        </Label>
+                                        <HBox alignment="CENTER" spacing="20.0">
+                                            <children>
+                                                <Button fx:id="administerMedicationButton" mnemonicParsing="false" onAction="#handleAdministerMedication" text="Administer Medication" />
+                                                <Button fx:id="viewAdministrationsButton" mnemonicParsing="false" onAction="#handleViewAdministrations" text="View Administrations" />
+                                            </children>
+                                        </HBox>
+                                        <BorderPane fx:id="medicationContainer" prefHeight="500.0" prefWidth="200.0" />
+                                    </children>
+                                    <padding>
+                                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                    </padding>
+                                </VBox>
+                            </center>
+                        </BorderPane>
+                    </content>
+                </Tab>
+                <Tab text="System Logs">
+                    <content>
+                        <BorderPane prefHeight="200.0" prefWidth="200.0">
+                            <center>
+                                <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="20.0" BorderPane.alignment="CENTER">
+                                    <children>
+                                        <Label text="System Action Logs">
+                                            <font>
+                                                <Font name="System Bold" size="18.0" />
+                                            </font>
+                                        </Label>
+                                        <HBox alignment="CENTER" spacing="20.0">
+                                            <children>
+                                                <Button fx:id="viewLogsButton" mnemonicParsing="false" onAction="#handleViewLogs" text="View Action Logs" />
+                                            </children>
+                                        </HBox>
+                                        <BorderPane fx:id="logsContainer" prefHeight="500.0" prefWidth="200.0" />
+                                    </children>
+                                    <padding>
+                                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                    </padding>
+                                </VBox>
+                            </center>
+                        </BorderPane>
+                    </content>
+                </Tab>
+            </tabs>
+        </TabPane>
+    </center>
+    <bottom>
+        <HBox alignment="CENTER_RIGHT" style="-fx-background-color: #f0f0f0;" BorderPane.alignment="CENTER">
+            <children>
+                <Label text="© 2025 RMIT Care Home" />
+            </children>
+            <padding>
+                <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+            </padding>
+        </HBox>
+    </bottom>
+</BorderPane>

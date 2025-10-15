@@ -1,0 +1,7 @@
+org/example/model/PatientTest.class
+org/example/model/BedTest.class
+org/example/model/ShiftTest.class
+org/example/model/StaffTest.class
+org/example/model/RoomTest.class
+org/example/service/CareHomeServicePatientTest.class
+org/example/service/AuthenticationServiceTest.class

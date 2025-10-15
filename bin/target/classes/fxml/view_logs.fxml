@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controller.ViewLogsController">
+   <top>
+      <VBox alignment="CENTER" spacing="10.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label text="System Action Logs">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <HBox alignment="CENTER" spacing="15.0">
+               <children>
+                  <Label text="Filter by Staff:" />
+                  <ComboBox fx:id="staffComboBox" prefWidth="150.0" promptText="All Staff" />
+                  <Label text="Filter by Action:" />
+                  <ComboBox fx:id="actionComboBox" prefWidth="150.0" promptText="All Actions" />
+                  <Label text="Date:" />
+                  <DatePicker fx:id="datePicker" />
+                  <Button fx:id="filterButton" mnemonicParsing="false" onAction="#handleFilter" text="Apply Filter" />
+                  <Button fx:id="clearFilterButton" mnemonicParsing="false" onAction="#handleClearFilter" text="Clear Filter" />
+               </children>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </HBox>
+         </children>
+         <BorderPane.margin>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </BorderPane.margin>
+      </VBox>
+   </top>
+   <center>
+      <TableView fx:id="logsTableView" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+        <columns>
+          <TableColumn fx:id="idColumn" prefWidth="75.0" text="ID" />
+          <TableColumn fx:id="timestampColumn" prefWidth="150.0" text="Timestamp" />
+          <TableColumn fx:id="staffColumn" prefWidth="150.0" text="Staff" />
+          <TableColumn fx:id="actionColumn" prefWidth="120.0" text="Action" />
+          <TableColumn fx:id="detailsColumn" prefWidth="300.0" text="Details" />
+        </columns>
+         <BorderPane.margin>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </BorderPane.margin>
+      </TableView>
+   </center>
+   <bottom>
+      <HBox alignment="CENTER_RIGHT" spacing="10.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="totalLogsLabel" text="Total Logs: 0" />
+            <Button fx:id="refreshButton" mnemonicParsing="false" onAction="#handleRefresh" text="Refresh" />
+            <Button fx:id="closeButton" mnemonicParsing="false" onAction="#handleClose" text="Close" />
+         </children>
+         <BorderPane.margin>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </BorderPane.margin>
+      </HBox>
+   </bottom>
+</BorderPane>

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controller.AdministerMedicationController">
+   <top>
+      <Label text="Administer Medication" BorderPane.alignment="CENTER">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+         <BorderPane.margin>
+            <Insets top="20.0" />
+         </BorderPane.margin>
+      </Label>
+   </top>
+   <center>
+      <VBox prefHeight="200.0" prefWidth="100.0" spacing="15.0" BorderPane.alignment="CENTER">
+         <children>
+            <GridPane hgap="10.0" vgap="10.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="150.0" prefWidth="150.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label text="Patient:" />
+                  <ComboBox fx:id="patientComboBox" prefWidth="200.0" GridPane.columnIndex="1" />
+               </children>
+            </GridPane>
+            <Label text="Prescriptions:">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <TableView fx:id="prescriptionsTable" prefHeight="150.0" prefWidth="200.0">
+              <columns>
+                <TableColumn fx:id="prescriptionDateColumn" prefWidth="150.0" text="Date" />
+                <TableColumn fx:id="prescriptionDoctorColumn" prefWidth="150.0" text="Doctor" />
+                  <TableColumn fx:id="prescriptionNotesColumn" prefWidth="300.0" text="Notes" />
+              </columns>
+            </TableView>
+            <Label text="Medications:">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <TableView fx:id="medicationsTable" prefHeight="150.0" prefWidth="200.0">
+              <columns>
+                <TableColumn fx:id="medicationNameColumn" prefWidth="150.0" text="Name" />
+                <TableColumn fx:id="medicationDosageColumn" prefWidth="100.0" text="Dosage" />
+                  <TableColumn fx:id="medicationInstructionsColumn" prefWidth="200.0" text="Instructions" />
+                  <TableColumn fx:id="medicationTimesColumn" prefWidth="150.0" text="Administration Times" />
+              </columns>
+            </TableView>
+            <GridPane hgap="10.0" vgap="10.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="150.0" prefWidth="150.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="80.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label text="Notes:" />
+                  <TextArea fx:id="notesArea" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" />
+               </children>
+            </GridPane>
+            <Label fx:id="errorLabel" textFill="RED" />
+         </children>
+         <BorderPane.margin>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </BorderPane.margin>
+      </VBox>
+   </center>
+   <bottom>
+      <HBox alignment="CENTER" spacing="20.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="administerButton" mnemonicParsing="false" onAction="#handleAdminister" prefWidth="150.0" text="Administer Selected" />
+            <Button fx:id="cancelButton" mnemonicParsing="false" onAction="#handleCancel" prefWidth="100.0" text="Cancel" />
+         </children>
+         <BorderPane.margin>
+            <Insets bottom="20.0" left="20.0" right="20.0" />
+         </BorderPane.margin>
+      </HBox>
+   </bottom>
+</BorderPane>
